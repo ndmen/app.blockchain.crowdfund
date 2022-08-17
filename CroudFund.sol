@@ -21,5 +21,8 @@ contract CrowdFund {
     );
     event Cancel(uint id);
     event Pledge(uint indexed id, address indexed caller, uint amount);
+    event Unpledge(uint indexed id, address indexed caller, uint amount);
+    event Claim(uint id);
+    event Refund(uint id, address indexed caller, uint amount);
 }
 
