@@ -48,5 +48,9 @@ contract CrowdFund {
     mapping(uint => Campaign) public campaigns;
     // Mapping from campaign id => pledger => amount pledged
     mapping(uint => mapping(address => uint)) public pledgedAmount;
+
+    constructor(address _token) {
+        token = IERC20(_token);
+    }
 }
 
