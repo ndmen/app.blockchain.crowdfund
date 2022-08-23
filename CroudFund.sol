@@ -74,5 +74,14 @@ contract CrowdFund {
 
         emit Launch(count, msg.sender, _goal, _startAt, _endAt);
     }
+    
+    function cancel(uint _id) external {
+        Campaign memory campaign = campaigns[_id];
+        require(campaign.creator == msg.sender, "not creator");
+        require(block.timestamp < campaign.startAt, "started");
+
+        delete campaigns[_id];
+        emit Cancel(_id);
+    }
 }
 
